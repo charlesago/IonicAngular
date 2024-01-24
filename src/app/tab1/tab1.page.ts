@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {ChuckService} from '../services/chuck.service'
+import {Observable} from "rxjs";
+import {chuck} from "../interface/chuck";
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +9,25 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  jokeService: ChuckService = inject(ChuckService)
+  joke: chuck = {} as chuck;
 
-  constructor() {}
+
+
+  constructor() {
+    this.getOneJoke()
+  }
+
+  getOneJoke(){
+    this.jokeService.getJoke().subscribe({
+      next:(jokeFromFetch:any)=>{
+        this.joke = {
+          value: jokeFromFetch.value,
+          url: jokeFromFetch.url
+        }
+        console.log(jokeFromFetch)
+      }
+    })
+  }
 
 }

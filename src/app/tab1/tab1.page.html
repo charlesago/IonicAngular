@@ -7,11 +7,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+    <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+<p>{{joke.value}}</p>
+  <a href="{{joke.url}}">{{joke.url}}</a>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="getOneJoke()">
+      <ion-icon name="camera"></ion-icon>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+    </ion-fab-button>
+    </ion-fab>
 </ion-content>
