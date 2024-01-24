@@ -1,0 +1,7 @@
+{
+  "name": "firstprojectionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
